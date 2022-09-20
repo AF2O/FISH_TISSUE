@@ -326,7 +326,7 @@ if __name__ == '__main__':
     # img_root = '/data2/Caijt/SoftTeacher/data/FISH_1102/her2_images'
     # target_json_path = '/data2/Caijt/SoftTeacher/data/FISH_1102/annotations/instances_all_0708_her2.json'
 
-    sample_root = '/data2/Caijt/FISH_mmdet/data/FISH_raw/FISH_TISSUE_RAW_108/'
+    '''sample_root = '/data2/Caijt/FISH_mmdet/data/FISH_raw/FISH_TISSUE_RAW_108/'
     db_files_root = '/data2/Caijt/FISH_mmdet/data/FISH_raw/db_anno/'
     img_root = '/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Her2_Images/'
     target_json_path = '/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Annotations/instances_all_0901_her2.json'
@@ -337,24 +337,24 @@ if __name__ == '__main__':
     json_dict, category_count_dict = make_json_file(img_json_dict, img_db_dict, project = project_name)
     print('----------category_count_dict------------', '\n', category_count_dict)
     json_file = open(target_json_path, mode='w', encoding= 'utf-8')
-    json.dump(json_dict, json_file, cls=NpEncoder, ensure_ascii=False)
+    json.dump(json_dict, json_file, cls=NpEncoder, ensure_ascii=False)'''
 
     '''########### CHECK ANNOPOINTS #############'''
 
     '--------------------------------------- one image for checking sanity--------------------------------------'
 
-    # project_name = 'Her2'
-    # # sample_root = '/data2/Caijt/SoftTeacher/FISH_raw/HER2_RAW'
-    # sample_root = '/data2/Caijt/SoftTeacher/FISH_raw/FISH_TISSUE_RAW_1/'
-    # db_files_root = '/data2/Caijt/SoftTeacher/FISH_raw/db_anno_1/'
+    # sample_root = '/data2/Caijt/SoftTeacher/FISH_raw/HER2_RAW'
+    sample_root = '/data2/Caijt/SoftTeacher/FISH_raw/FISH_TISSUE_RAW_1/'
+    db_files_root = '/data2/Caijt/SoftTeacher/FISH_raw/db_anno_1/'
     # img_root = '/data2/Caijt/SoftTeacher/data/FISH_1102/her_image_1/'
-    # # target_json_path = '/data2/Caijt/SoftTeacher/data/FISH_1102/annotations/instances_all_0708_her2.json'
-    # target_json_path = '/data2/Caijt/SoftTeacher/data/FISH_1102/annotations/instances_all_0624_her2_single_sample.json'
-    #
-    # img_json_dict = get_img_json(sample_root, img_root)
-    # img_db_dict = get_img_db(img_json_dict, db_files_root)
-    # # pdb.set_trace()
-    # json_dict, category_count_dict = make_json_file(img_json_dict, img_db_dict, project = project_name)
-    # print('----------category_count_dict------------', '\n', category_count_dict)
-    # json_file = open(target_json_path, mode='w', encoding= 'utf-8')
-    # json.dump(json_dict, json_file, cls=NpEncoder, ensure_ascii=False)
+    img_root = '/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Her2_Images_1/'
+    # target_json_path = '/data2/Caijt/SoftTeacher/data/FISH_1102/annotations/instances_all_0708_her2.json'
+    target_json_path = '/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Annotations/instances_all_0902_her2_single_sample.json'
+
+    img_json_dict = get_img_json(sample_root, img_root)
+    img_db_dict = get_img_db(img_json_dict, db_files_root)
+    # pdb.set_trace()
+    json_dict, category_count_dict = make_json_file(img_json_dict, img_db_dict, project = project_name)
+    print('----------category_count_dict------------', '\n', category_count_dict)
+    json_file = open(target_json_path, mode='w', encoding= 'utf-8')
+    json.dump(json_dict, json_file, cls=NpEncoder, ensure_ascii=False)

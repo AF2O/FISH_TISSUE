@@ -50,12 +50,13 @@ def image2grey(map_path, target_grey_root):
     return
 if __name__ == "__main__":
 
-    dataTypeAnn = 'instances_all_0901_her2'
+    dataTypeAnn = 'instances_all_0902_her2_single_sample'
+
     dataDir = '/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/'
     annotation_folder = 'Annotations'
     stuffthing_folder = 'Get_Stuffthing'
-    IntermediateFolderName = 'intermediate_0901'
-    TargetFolderName = 'stuffthingmaps_Her2_0901'
+    IntermediateFolderName = 'intermediate_0902_single'
+    TargetFolderName = 'stuffthingmaps_Her2_0902_single'
     cocoSegmentationToPngDemo(dataTypeAnn=dataTypeAnn, dataDir=dataDir,
                               annotation_folder = annotation_folder, stuffthing_folder = stuffthing_folder,
                               IntermediateFolderName=IntermediateFolderName)

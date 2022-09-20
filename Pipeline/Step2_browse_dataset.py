@@ -10,15 +10,12 @@ from mmcv import Config, DictAction
 from mmdet.core.utils import mask2ndarray
 from mmdet.core.visualization import imshow_det_bboxes
 
-from ssod.datasets import build_dataset
-from ssod.models.utils import Transform2D
+from mmdet.datasets.builder import build_dataset
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Browse a dataset")
-    parser.add_argument("--config",
-                        default="/data2/Caijt/FISH_mmdet/configs/htc_r50_fpn_signal_FISH_Her2_0901.py",
-                        help="train config file path")
+    parser.add_argument("config", help="train config file path")
 
     parser.add_argument(
         "--skip-type",
@@ -35,7 +32,7 @@ def parse_args():
     )
     parser.add_argument("--not-show", default=True, action="store_true")
     parser.add_argument(
-        "--show-interval", type=float, default=2, help="the interval of show (s)"
+        "--show-interval", type=float, default=1, help="the interval of show (s)"
     )
     parser.add_argument(
         "--cfg-options",
@@ -138,38 +135,6 @@ def main():
                 out_file=filename,
                 bbox_color=(255, 102, 61),
                 text_color=(255, 102, 61),
-            )
-
-        if len(tran_mats) == 2:
-            # check equality between different augmentation
-            transed_bboxes = Transform2D.transform_bboxes(
-                torch.from_numpy(bboxes[1]).float(),
-                torch.from_numpy(tran_mats[0]).float()
-                @ torch.from_numpy(tran_mats[1]).float().inverse(),
-                out_shapes[0],
-            )
-            img = imshow_det_bboxes(
-                item[0]["img"],
-                item[0]["gt_bboxes"],
-                item[0]["gt_labels"],
-                class_names=dataset.CLASSES,
-                show=False,
-                wait_time=args.show_interval,
-                out_file=None,
-                bbox_color=(255, 102, 61),
-                text_color=(255, 102, 61),
-            )
-            imshow_det_bboxes(
-                img,
-                transed_bboxes.numpy(),
-                labels[1],
-                class_names=dataset.CLASSES,
-                show=True,
-                wait_time=args.show_interval,
-                out_file=None,
-                bbox_color=(0, 0, 255),
-                text_color=(0, 0, 255),
-                thickness=5,
             )
 
         progress_bar.update()

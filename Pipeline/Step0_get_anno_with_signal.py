@@ -184,9 +184,6 @@ def get_img_json(sample_root, img_root):
             image_path = os.path.join(dirname, image_name)
             shutil.copy(image_path, os.path.join(img_root, os.path.basename(image_path)))
             json_path = os.path.join(dirname, 'result.json')
-            # print('image_path', image_path, '\n',
-            #       'json_path', json_path, '\n',
-            #       '---------------------------------')
             img_json_dict[image_path] = json_path
     print('Totally {} samples.'.format(len(img_json_dict)))
     return img_json_dict
