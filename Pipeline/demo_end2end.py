@@ -395,11 +395,11 @@ def parse_args():
                         help="CELL_OR_TISSUE")
     parser.add_argument("--img_dir",
                         # default='/data2/Caijt/FISH_mmdet/data/FISH_raw/szl_test/',
-                        # default="/data2/Caijt/FISH_mmdet/data/FISH_raw/HER2_TEST_0406/2021/",
-                        default="/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Her2_Images_1/",
+                        default="/data2/Caijt/FISH_mmdet/data/FISH_raw/HER2_TEST_0406/2021/",
+                        # default="/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Her2_Images_1/",
                         help="Image file")
     parser.add_argument("--output", type=str,
-                        default='/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Test_Results/HER2_TEST_0920_single/',
+                        default='/data2/Caijt/FISH_mmdet/data/FISH_TISSUE/Test_Results/HER2_TEST_0922_lr0.07_mul0.2/',
                         help="specify the directory to save visualization results.")
 
     parser.add_argument("--device", default="cuda:0", help="Device used for inference")

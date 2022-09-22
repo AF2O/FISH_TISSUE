@@ -17,7 +17,7 @@ data = dict(
                 with_mask=True,
                 with_seg=True,
                 with_signal=True,
-                with_ignore_area=False),
+                with_ignore_area=True),
             dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
@@ -33,7 +33,7 @@ data = dict(
                 keys=[
                     'img', 'gt_bboxes', 'gt_labels', 'gt_masks',
                     'gt_signal_points', 'gt_signal_labels',
-                    # 'gt_signal_ignore_area',
+                    'gt_signal_ignore_area',
                     'gt_semantic_seg'
                 ])
         ],
